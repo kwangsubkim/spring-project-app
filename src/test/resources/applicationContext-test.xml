@@ -7,7 +7,7 @@
    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
 	xmlns:util="http://www.springframework.org/schema/util">
 
-	<!-- ==================LOCAL================= -->
+	<!-- ==================TEST================= -->
 	
 	<context:annotation-config />
 	<context:component-scan base-package="kr.blogspot.kwangsub"/>

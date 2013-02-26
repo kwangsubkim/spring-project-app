@@ -22,6 +22,7 @@
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 		<mybatis.version>3.1.1</mybatis.version>
 		<mybatis-spring.version>1.1.1</mybatis-spring.version>
+		<mockito-all.version>1.8.5</mockito-all.version>
 	</properties>
 
 	<dependencies>
@@ -29,18 +30,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${springframework.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 
@@ -97,6 +86,31 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis-spring.version}</version>
+		</dependency>
+		
+		<!-- Spring Test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- Mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito-all.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
