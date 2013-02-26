@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	xmlns:util="http://www.springframework.org/schema/util">
+
+	<context:annotation-config />
+	<context:component-scan base-package="kr.blogspot.kwangsub"/>
+	
+	<!--
+	https://gist.github.com/kwangsubkim/4714979#file-applicationcontext-propertyplaceholderconfigurer-xml
+	이런 방식도 있음 
+	 -->
+	<util:properties id="dataProps"
+		location="classpath:properties/data.properties" />
+		
+	<!-- <bean id="redisService" class="kr.blogspot.kwangsub.service.SampleService"/> -->
+
+	<!-- Redis Source -->
+	<bean id="connectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="#{dataProps['redis.host']}" />
+		<property name="port" value="#{dataProps['redis.port']}" />
+		<property name="password" value="#{dataProps['redis.password']}" />
+	</bean>
+	
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
+	<!-- Redis Source -->
+
+</beans>
