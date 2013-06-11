@@ -13,7 +13,6 @@ public class AppMainNoXml {
 	public static void main(String args[]) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("kr.blogspot.kwangsub.config");
 		SampleBean bean = context.getBean("sample", SampleBean.class);
-		bean.setName("kwang");
 		
 		LOG.info(bean.getName());
 	}
